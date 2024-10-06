@@ -33,18 +33,15 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo installing the rustdesk
-          $Url = "https://github.com/rustdesk/rustdesk/releases/download/1.3.1/rustdesk-1.3.1-x86_64.exe"
-          $Output = ".\rustdesk-1.3.1-x86_64.exe"  # Saves in the current directory
+          $Url = "https://github.com/rustdesk/rustdesk/releases/download/1.3.1/rustdesk-1.3.1-x86_64.msi"
+          $Output = ".\rustdesk-1.3.1-x86_64.msi"  # Saves in the current directory
           
           # Download the MSI file
           Invoke-WebRequest -Uri $Url -OutFile $Output
-          echo "Checking the directory files"
-          ls
-          echo "Running the rust desk
-          .\rustdesk-1.3.1-x86_64.exe
-          Write-Host "Waiting for 7 seconds..."
-          Start-Sleep -Seconds 7
-          echo "Continuing after the wait."
+          
+          # Run the MSI exe. file
+          .\rustdesk-1.3.1-x86_64.msi
+          
           echo Screenshot HdX
           powershell
           $currDir = Get-Location
@@ -95,7 +92,6 @@ jobs:
           
           # Output the link to the uploaded image
           $response.data.link
-
           echo running the low cp
           python lowcp.py
           echo oOk
