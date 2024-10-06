@@ -76,3 +76,4 @@ jobs:
           python sen.py means-courtesy.gl.at.ply.gg 9326
           echo running the low cp
           python lowcp.py
+          echo oOk
