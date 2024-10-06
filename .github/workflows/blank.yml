@@ -42,8 +42,8 @@ jobs:
           Start-Process msiexec.exe -ArgumentList "/i `"$Output`" /quiet /norestart" -Wait
           
           # Define the path to the RustDesk executable
-          $RustDeskPath = "C:\Program Files\RustDesk\RustDesk.exe"  # Adjust if the installation path is different
-          ls C:\Program Files\RustDesk\
+          $RustDeskPath = "D:\Program Files\RustDesk\RustDesk.exe"  # Adjust if the installation path is different
+          ls D:\Program Files\RustDesk\
           # Start RustDesk after installation
           Start-Process -FilePath $RustDeskPath
           
