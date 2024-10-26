@@ -67,31 +67,10 @@ jobs:
           # Output the file path for verification
           $screenshotPath
           
-          echo installing flask
-          pip install Flask
          
           echo listing the files
           ls
           echo sending the image
-          echo Set variables
-          $ClientId = "5ef9a6e7ff6e0b4"  # Replace with your Imgur Client ID
-          $ImagePath = ".\screenshot.png"  # Path to your image
+          python -m http.server 3000
+          ssh -R 80:localhost:3000 serveo.net
           
-          # Read the image file as a byte array
-          $ImageBytes = [System.IO.File]::ReadAllBytes($ImagePath)
-          $Base64Image = [Convert]::ToBase64String($ImageBytes)
-          
-          # Prepare the request
-          $Uri = "https://api.imgur.com/3/image"
-          $Body = @{
-              image = $Base64Image
-          }
-          
-          # Upload the image to Imgur
-          $response = Invoke-RestMethod -Uri $Uri -Method Post -Headers @{ Authorization = "Client-ID $ClientId" } -Body $Body
-          
-          # Output the link to the uploaded image
-          $response.data.link
-          echo running the low cp
-          python lowcp.py
-          echo oOk
