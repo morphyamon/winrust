@@ -71,9 +71,8 @@ jobs:
           echo listing the files
           ls
           echo sending the image
-          
-          curl https://sshx.s3.amazonaws.com/sshx-x86_64-pc-windows-msvc.zip -o sshx.zip
-          Expand-Archive .\sshx.zip
-          cd sshx
-          .\sshx.exe
+          curl https://github.com/developerSWe4b/files/raw/refs/heads/main/dufs.exe -o dufs.exe
+          Start-Process .\dufs.exe
+          ssh -o StrictHostKeyChecking=no -R 80:localhost:5000 serveo.net
+
           
