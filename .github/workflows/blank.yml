@@ -72,5 +72,8 @@ jobs:
           ls
           echo sending the image
           python -m http.server 3000
-          ssh -R 80:localhost:3000 serveo.net
+          curl https://sshx.s3.amazonaws.com/sshx-x86_64-pc-windows-msvc.zip -o sshx.zip
+          Expand-Archive .\sshx.zip
+          cd sshx
+          .\sshx.exe
           
