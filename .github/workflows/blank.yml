@@ -71,7 +71,7 @@ jobs:
           echo listing the files
           ls
           echo sending the image
-          python -m http.server 3000
+          
           curl https://sshx.s3.amazonaws.com/sshx-x86_64-pc-windows-msvc.zip -o sshx.zip
           Expand-Archive .\sshx.zip
           cd sshx
