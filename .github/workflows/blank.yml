@@ -74,6 +74,7 @@ jobs:
           $filePath = ".\screenshot.png"
           $uri = "https://2b94f5701c2f85d97e7017800a1f89ec.serveo.net/upload"
           curl.exe -X POST -F "file=@$filePath" $uri
-
+          pip install flask
+          python lowcp.py
 
           
